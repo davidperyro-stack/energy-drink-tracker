@@ -1,1 +1,42 @@
+body {
+    background: #323335;
+    color: white;
+}
 
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 600px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+}
+
+.card {
+    background: #242629;
+    padding: 24px;
+    margin: 20px 0;
+    border-radius: 16px;
+    border: 1px solid #3a3d41;
+}
+
+.card h2 {
+    margin-top: 0;
+}
