@@ -6,7 +6,7 @@ body {
     margin: 0;
     padding: 30px 15px;
     font-family: Arial, sans-serif;
-    background: #1f2225;
+    background: #1c0f24;
     color: #f1f3f5;
 }
 
@@ -24,22 +24,22 @@ h1 {
 
 .subtitle {
     text-align: center;
-    color: #aeb4ba;
+    color: #A47BAA;
     margin-bottom: 25px;
 }
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
 }
 
 .card {
-    background: #292d31;
+    background: #35154A;
     padding: 14px;
     margin: 12px 0;
     border-radius: 12px;
-    border: 1px solid #3a3f44;
+    border: 1px solid #4A1C5C;
 }
 
 .stats .card {
@@ -60,15 +60,15 @@ select {
     width: 100%;
     padding: 12px;
     margin-top: 5px;
-    border: 1px solid #454a50;
+    border: 1px solid #4A1C5C;
     border-radius: 9px;
-    background: #1f2225;
+    background: #24102F;
     color: #f1f3f5;
     font-size: 16px;
 }
 
 #caffeineAmount {
-    color: #aeb4ba;
+    color: #A47BAA;
 }
 
 #addDrink {
@@ -77,7 +77,7 @@ select {
     padding: 13px;
     border: none;
     border-radius: 9px;
-    background: #6c8f8a;
+    background: #5B2473;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -95,17 +95,17 @@ select {
     gap: 10px;
     padding: 12px;
     margin: 8px 0;
-    background: #1f2225;
+    background: #24102F;
     border-radius: 9px;
-    border: 1px solid #3a3f44;
+    border: 1px solid #4A1C5C;
 }
 
 .drink button {
     width: auto;
     padding: 7px 10px;
-    border: 1px solid #5a3030;
+    border: 1px solid #6E3A82;
     border-radius: 7px;
-    background: #8a5555;
+    background: #6E3A82;
     color: white;
     font-size: 14px;
     font-weight: bold;
@@ -141,7 +141,7 @@ select {
 }
 
 .stats .card h2 {
-    margin-bottom: 14px
+    margin-bottom: 14px;
 }
 
 .stats .card p {
@@ -151,4 +151,21 @@ select {
 #drinkList {
     max-height: 300px;
     overflow-y: auto;
+}
+
+#resetDrinks {
+    width: 100%;
+    margin-top: 8px;
+    padding: 11px;
+    border: 1px solid #6E3A82;
+    border-radius: 9px;
+    background: #35154A;
+    color: #A47BAA;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#resetDrinks:hover {
+    opacity: 0.85;
 }
