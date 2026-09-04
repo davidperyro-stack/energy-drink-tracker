@@ -1,51 +1,78 @@
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Energy Drink Tracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <h1>Energy Drink Tracker</h1>
 
-    <p>Drinks today: <span id="drinkCount">0</span></p>
-    <p>Caffeine today: <span id="totalCaffeine">0</span> mg</p>
+    <section class="stats">
 
-    <p>Drinks this week: <span id="weekDrinkCount">0</span></p>
-    <p>Caffeine this week: <span id="weekCaffeine">0</span> mg</p>
+        <div class="card">
+            <h2>Today</h2>
+            <p>Drinks: <span id="drinkCount">0</span></p>
+            <p>Caffeine: <span id="totalCaffeine">0</span> mg</p>
+        </div>
 
-    <p>Drinks this month: <span id="monthDrinkCount">0</span></p>
-    <p>Caffeine this month: <span id="monthCaffeine">0</span> mg</p>
+        <div class="card">
+            <h2>This Week</h2>
+            <p>Drinks: <span id="weekDrinkCount">0</span></p>
+            <p>Caffeine: <span id="weekCaffeine">0</span> mg</p>
+        </div>
 
-    <p>Total drinks: <span id="totalDrinkCount">0</span></p>
-    <p>Total caffeine: <span id="totalCaffeineAllTime">0</span> mg</p>
+        <div class="card">
+            <h2>This Month</h2>
+            <p>Drinks: <span id="monthDrinkCount">0</span></p>
+            <p>Caffeine: <span id="monthCaffeine">0</span> mg</p>
+        </div>
 
-    <h2>What did you drink?</h2>
+        <div class="card">
+            <h2>All Time</h2>
+            <p>Drinks: <span id="totalDrinkCount">0</span></p>
+            <p>Caffeine: <span id="totalCaffeineAllTime">0</span> mg</p>
+        </div>
 
-    <select id="drink">
-        <option value="">-- Choose a drink --</option>
+    </section>
 
-        <option value="Monster Energy">Monster Energy</option>
-        <option value="Monster Ultra">Monster Ultra</option>
-        <option value="Monster Mango Loco">Monster Mango Loco</option>
-        <option value="Monster Pipeline Punch">Monster Pipeline Punch</option>
-        <option value="Monster Pacific Punch">Monster Pacific Punch</option>
+    <section class="card">
 
-        <option value="Red Bull">Red Bull</option>
-        <option value="Red Bull Sugarfree">Red Bull Sugarfree</option>
-        <option value="Red Bull Watermelon">Red Bull Watermelon</option>
-        <option value="Red Bull Blueberry">Red Bull Blueberry</option>
-        <option value="Red Bull Tropical">Red Bull Tropical</option>
-    </select>
-</body>
+        <h2>What did you drink?</h2>
 
-    <p id="caffeineAmount">Caffeine: -- mg</p>
+        <select id="drink">
+            <option value="">-- Choose a drink --</option>
 
-    <button id="addDrink">Add drink</button>
-    <h2>Drinks</h2>
-    <div id="drinkList"></div>
+            <option value="Monster Energy">Monster Energy</option>
+            <option value="Monster Ultra">Monster Ultra</option>
+            <option value="Monster Mango Loco">Monster Mango Loco</option>
+            <option value="Monster Pipeline Punch">Monster Pipeline Punch</option>
+            <option value="Monster Pacific Punch">Monster Pacific Punch</option>
+
+            <option value="Red Bull">Red Bull</option>
+            <option value="Red Bull Sugarfree">Red Bull Sugarfree</option>
+            <option value="Red Bull Watermelon">Red Bull Watermelon</option>
+            <option value="Red Bull Blueberry">Red Bull Blueberry</option>
+            <option value="Red Bull Tropical">Red Bull Tropical</option>
+        </select>
+
+        <p id="caffeineAmount">Caffeine: -- mg</p>
+
+        <button id="addDrink">Add drink</button>
+
+    </section>
+
+    <section class="card">
+
+        <h2>Drinks</h2>
+
+        <div id="drinkList"></div>
+
+    </section>
 
     <script src="script.js"></script>
 
+</body>
 </html>
+
