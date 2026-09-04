@@ -1,1 +1,51 @@
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Drink Tracker</title>
+</head>
+
+<body>
+
+    <h1>Energy Drink Tracker</h1>
+
+    <p>Drinks today: <span id="drinkCount">0</span></p>
+    <p>Caffeine today: <span id="totalCaffeine">0</span> mg</p>
+
+    <p>Drinks this week: <span id="weekDrinkCount">0</span></p>
+    <p>Caffeine this week: <span id="weekCaffeine">0</span> mg</p>
+
+    <p>Drinks this month: <span id="monthDrinkCount">0</span></p>
+    <p>Caffeine this month: <span id="monthCaffeine">0</span> mg</p>
+
+    <p>Total drinks: <span id="totalDrinkCount">0</span></p>
+    <p>Total caffeine: <span id="totalCaffeineAllTime">0</span> mg</p>
+
+    <h2>What did you drink?</h2>
+
+    <select id="drink">
+        <option value="">-- Choose a drink --</option>
+
+        <option value="Monster Energy">Monster Energy</option>
+        <option value="Monster Ultra">Monster Ultra</option>
+        <option value="Monster Mango Loco">Monster Mango Loco</option>
+        <option value="Monster Pipeline Punch">Monster Pipeline Punch</option>
+        <option value="Monster Pacific Punch">Monster Pacific Punch</option>
+
+        <option value="Red Bull">Red Bull</option>
+        <option value="Red Bull Sugarfree">Red Bull Sugarfree</option>
+        <option value="Red Bull Watermelon">Red Bull Watermelon</option>
+        <option value="Red Bull Blueberry">Red Bull Blueberry</option>
+        <option value="Red Bull Tropical">Red Bull Tropical</option>
+    </select>
+</body>
+
+    <p id="caffeineAmount">Caffeine: -- mg</p>
+
+    <button id="addDrink">Add drink</button>
+    <h2>Drinks</h2>
+    <div id="drinkList"></div>
+
+    <script src="script.js"></script>
+
+</html>
