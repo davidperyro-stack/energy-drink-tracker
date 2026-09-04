@@ -7,72 +7,140 @@
 
 <body>
 
-    <h1>Energy Drink Tracker</h1>
+    <main class="container">
 
-    <section class="stats">
+        <h1>Energy Drink Tracker</h1>
 
-        <div class="card">
+        <section class="card today-card">
             <h2>Today</h2>
+
             <p>Drinks: <span id="drinkCount">0</span></p>
             <p>Caffeine: <span id="totalCaffeine">0</span> mg</p>
-        </div>
 
-        <div class="card">
-            <h2>This Week</h2>
-            <p>Drinks: <span id="weekDrinkCount">0</span></p>
-            <p>Caffeine: <span id="weekCaffeine">0</span> mg</p>
-        </div>
+            <p id="caffeineMessage">It looks like you dont want energy today.</p>
+        </section>
 
-        <div class="card">
-            <h2>This Month</h2>
-            <p>Drinks: <span id="monthDrinkCount">0</span></p>
-            <p>Caffeine: <span id="monthCaffeine">0</span> mg</p>
-        </div>
+        <section class="stats">
 
-        <div class="card">
-            <h2>All Time</h2>
-            <p>Drinks: <span id="totalDrinkCount">0</span></p>
-            <p>Caffeine: <span id="totalCaffeineAllTime">0</span> mg</p>
-        </div>
+            <div class="card">
+                <h2>This Week</h2>
+                <p>Drinks: <span id="weekDrinkCount">0</span></p>
+                <p>Caffeine: <span id="weekCaffeine">0</span> mg</p>
+            </div>
 
-    </section>
+            <div class="card">
+                <h2>This Month</h2>
+                <p>Drinks: <span id="monthDrinkCount">0</span></p>
+                <p>Caffeine: <span id="monthCaffeine">0</span> mg</p>
+            </div>
 
-    <section class="card">
+            <div class="card">
+                <h2>All Time</h2>
+                <p>Drinks: <span id="totalDrinkCount">0</span></p>
+                <p>Caffeine: <span id="totalCaffeineAllTime">0</span> mg</p>
+            </div>
 
-        <h2>What did you drink?</h2>
+        </section>
 
-        <select id="drink">
-            <option value="">-- Choose a drink --</option>
+        <section class="card">
 
-            <option value="Monster Energy">Monster Energy</option>
-            <option value="Monster Ultra">Monster Ultra</option>
-            <option value="Monster Mango Loco">Monster Mango Loco</option>
-            <option value="Monster Pipeline Punch">Monster Pipeline Punch</option>
-            <option value="Monster Pacific Punch">Monster Pacific Punch</option>
+            <h2>Add a Drink</h2>
 
-            <option value="Red Bull">Red Bull</option>
-            <option value="Red Bull Sugarfree">Red Bull Sugarfree</option>
-            <option value="Red Bull Watermelon">Red Bull Watermelon</option>
-            <option value="Red Bull Blueberry">Red Bull Blueberry</option>
-            <option value="Red Bull Tropical">Red Bull Tropical</option>
-        </select>
+            <select id="drink">
+                <option value="">-- Choose a drink --</option>
 
-        <p id="caffeineAmount">Caffeine: -- mg</p>
+                <optgroup label="Monster Energy (Original)">
+                    <option value="Monster Energy Original Green">Monster Energy Original Green (OG)</option>
+                    <option value="Monster Energy Zero Sugar">Monster Energy Zero Sugar</option>
+                    <option value="Monster Energy Strawberry Shot">Monster Energy Strawberry Shot</option>
+                    <option value="Monster Energy Zero Sugar Strawberry Shot">Monster Energy Zero Sugar Strawberry Shot</option>
+                    <option value="Monster Energy Lando Norris">Monster Energy Lando Norris</option>
+                    <option value="Monster Energy Electric Blue">Monster Energy Electric Blue</option>
+                    <option value="Monster Energy Orange Dreamsicle">Monster Energy Orange Dreamsicle</option>
+                    <option value="Monster Energy Lo-Carb">Monster Energy Lo-Carb</option>
+                    <option value="Monster Energy Reserve Orange Dreamsicle">Monster Energy Reserve Orange Dreamsicle</option>
+                    <option value="Monster Energy Reserve Peaches n' Crème">Monster Energy Reserve Peaches n' Crème</option>
+                    <option value="Monster Energy Nitro Super Dry">Monster Energy Nitro Super Dry</option>
+                    <option value="Monster Energy Super-Premium Import">Monster Energy Super-Premium Import</option>
+                </optgroup>
 
-        <button id="addDrink">Add drink</button>
+                <optgroup label="Monster Ultra (Zero Sugar)">
+                    <option value="Monster Ultra Red White Blue Razz">Monster Ultra Red White Blue Razz</option>
+                    <option value="Monster Ultra Zero Ultra">Monster Ultra Zero Ultra (White Monster)</option>
+                    <option value="Monster Ultra Punk Punch">Monster Ultra Punk Punch</option>
+                    <option value="Monster Ultra Blue Hawaiian">Monster Ultra Blue Hawaiian</option>
+                    <option value="Monster Ultra Vice Guava">Monster Ultra Vice Guava</option>
+                    <option value="Monster Ultra Wild Passion">Monster Ultra Wild Passion</option>
+                    <option value="Monster Ultra Strawberry Dreams">Monster Ultra Strawberry Dreams</option>
+                    <option value="Monster Ultra Sunrise">Monster Ultra Sunrise</option>
+                    <option value="Monster Ultra Violet">Monster Ultra Violet</option>
+                    <option value="Monster Ultra Peachy Keen">Monster Ultra Peachy Keen</option>
+                    <option value="Monster Ultra Fantasy Ruby Red">Monster Ultra Fantasy Ruby Red</option>
+                    <option value="Monster Ultra Paradise">Monster Ultra Paradise</option>
+                    <option value="Monster Ultra Fiesta Mango">Monster Ultra Fiesta Mango</option>
+                    <option value="Monster Ultra Watermelon">Monster Ultra Watermelon</option>
+                    <option value="Monster Ultra Rosá">Monster Ultra Rosá</option>
+                    <option value="Monster Ultra Red">Monster Ultra Red</option>
+                    <option value="Monster Ultra Blue">Monster Ultra Blue</option>
+                    <option value="Monster Ultra Black">Monster Ultra Black</option>
+                </optgroup>
 
-    </section>
+                <optgroup label="Java Monster (Coffee + Energy)">
+                    <option value="Java Monster Mean Bean">Java Monster Mean Bean</option>
+                    <option value="Java Monster Loca Moca">Java Monster Loca Moca</option>
+                    <option value="Java Monster Salted Caramel">Java Monster Salted Caramel</option>
+                    <option value="Java Monster Café Latte">Java Monster Café Latte</option>
+                    <option value="Java Monster Irish Crème">Java Monster Irish Crème</option>
+                    <option value="Killer Brew Loca Moca">Killer Brew Loca Moca</option>
+                    <option value="Killer Brew Mean Bean">Killer Brew Mean Bean</option>
+                </optgroup>
 
-    <section class="card">
+                <optgroup label="Juice Monster (Juice + Energy)">
+                    <option value="Juice Monster Strawberry Lemonade">Juice Monster Strawberry Lemonade</option>
+                    <option value="Juice Monster Voodoo Grape">Juice Monster Voodoo Grape</option>
+                    <option value="Juice Monster Mango Loco">Juice Monster Mango Loco</option>
+                    <option value="Juice Monster Pacific Punch">Juice Monster Pacific Punch</option>
+                    <option value="Juice Monster Viking Berry">Juice Monster Viking Berry</option>
+                    <option value="Juice Monster Bad Apple">Juice Monster Bad Apple</option>
+                    <option value="Juice Monster Rio Punch">Juice Monster Rio Punch</option>
+                    <option value="Juice Monster Pipeline Punch">Juice Monster Pipeline Punch</option>
+                </optgroup>
 
-        <h2>Drinks</h2>
+                <optgroup label="Rehab Monster (Tea + Energy)">
+                    <option value="Rehab Monster Tea + Lemonade">Rehab Monster Tea + Lemonade</option>
+                    <option value="Rehab Monster Peach Tea">Rehab Monster Peach Tea</option>
+                    <option value="Rehab Monster Wild Berry Tea">Rehab Monster Wild Berry Tea</option>
+                    <option value="Rehab Monster Green Tea">Rehab Monster Green Tea</option>
+                </optgroup>
 
-        <div id="drinkList"></div>
+                <optgroup label="Red Bull">
+                    <option value="Red Bull">Red Bull</option>
+                    <option value="Red Bull Sugarfree">Red Bull Sugarfree</option>
+                    <option value="Red Bull Watermelon">Red Bull Watermelon</option>
+                    <option value="Red Bull Blueberry">Red Bull Blueberry</option>
+                    <option value="Red Bull Tropical">Red Bull Tropical</option>
+                </optgroup>
+            </select>
 
-    </section>
+            <p id="caffeineAmount">Caffeine: -- mg</p>
+
+            <button id="addDrink">Add Drink</button>
+
+        </section>
+
+        <section class="card">
+
+            <h2>History</h2>
+
+            <div id="drinkList"></div>
+
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
 
 </body>
-</html>
 
+
+</html>
