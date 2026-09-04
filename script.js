@@ -1,6 +1,6 @@
 const drinkSelect = document.getElementById("drink");
 const caffeineAmount = document.getElementById("caffeineAmount");
-
+const caffeineMessage = document.getElementById("caffeineMessage");
 const drinks = {
     "Monster Energy": 160,
     "Monster Ultra": 150,
@@ -139,7 +139,7 @@ const startOfMonth = new Date(
     1
 );
 
-savedDrinks.forEach(function(drink) {
+savedDrinks.slice().reverse().forEach(function(drink) {
 
     totalDrinkCount++;
     totalCaffeineAllTime += drink.caffeine;
@@ -204,3 +204,13 @@ monthCaffeineElement.textContent = monthCaffeine;
 
 totalDrinkCountElement.textContent = totalDrinkCount;
 totalCaffeineAllTimeElement.textContent = totalCaffeineAllTime;
+
+if (caffeineTotal === 0) {
+    caffeineMessage.textContent = "It looks like you dont want energy today.";
+} else if (caffeineTotal < 100) {
+    caffeineMessage.textContent = "Just getting started, huh?";
+} else if (caffeineTotal < 200) {
+    caffeineMessage.textContent = "You're working on something right now, arent you?";
+} else {
+    caffeineMessage.textContent = "Either youre a gym rat, working on something big or you just refuse sleep. Maybe consider stopping for today.";
+}
