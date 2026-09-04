@@ -56,6 +56,13 @@ const totalCaffeineAllTimeElement = document.getElementById("totalCaffeineAllTim
 
 let savedDrinks = JSON.parse(localStorage.getItem("energyDrinks")) || [];
 
+function saveDrinks() {
+    localStorage.setItem(
+        "energyDrinks",
+        JSON.stringify(savedDrinks)
+    );
+}
+
 addDrinkButton.addEventListener("click", function () {
 
     const selectedDrink = drinkSelect.value;
@@ -74,6 +81,7 @@ addDrinkButton.addEventListener("click", function () {
     totalCaffeine.textContent = caffeineTotal;
 
     const drinkItem = document.createElement("div");
+    drinkItem.className = "drink";
 
     drinkItem.textContent =
         `${selectedDrink} - ${caffeine} mg caffeine - ${new Date().toLocaleString()}`;
@@ -91,10 +99,7 @@ addDrinkButton.addEventListener("click", function () {
         if (index !== -1) {
             savedDrinks.splice(index, 1);
 
-            localStorage.setItem(
-                "energyDrinks",
-                JSON.stringify(savedDrinks)
-            );
+            saveDrinks();
 
             location.reload();
         }
@@ -111,10 +116,7 @@ addDrinkButton.addEventListener("click", function () {
 
     savedDrinks.push(drink);
 
-    localStorage.setItem(
-        "energyDrinks",
-        JSON.stringify(savedDrinks)
-    );
+    saveDrinks();
 });
 
 const today = new Date().toDateString();
@@ -162,6 +164,7 @@ savedDrinks.forEach(function(drink) {
         caffeineTotal += drink.caffeine;
 
         const drinkItem = document.createElement("div");
+        drinkItem.className = "drink";
 
         drinkItem.textContent =
             `${drink.name} - ${drink.caffeine} mg caffeine - ${new Date(drink.date).toLocaleString()}`;
@@ -178,10 +181,7 @@ savedDrinks.forEach(function(drink) {
 
                 savedDrinks.splice(index, 1);
 
-                localStorage.setItem(
-                    "energyDrinks",
-                    JSON.stringify(savedDrinks)
-                );
+                saveDrinks();
 
                 location.reload();
             }
