@@ -2,16 +2,80 @@ const drinkSelect = document.getElementById("drink");
 const caffeineAmount = document.getElementById("caffeineAmount");
 const caffeineMessage = document.getElementById("caffeineMessage");
 const drinks = {
-    "Monster Energy": 160,
-    "Monster Ultra": 150,
-    "Monster Mango Loco": 160,
-    "Monster Pipeline Punch": 160,
-    "Monster Pacific Punch": 160,
-    "Red Bull": 80,
+    "Monster Energy Original Green": 160,
+    "Monster Energy Zero Sugar": 160,
+    "Monster Energy Strawberry Shot": 160,
+    "Monster Energy Zero Sugar Strawberry Shot": 160,
+    "Monster Energy Lando Norris": 160,
+    "Monster Energy Electric Blue": 160,
+    "Monster Energy Orange Dreamsicle": 160,
+    "Monster Energy Lo-Carb": 160,
+    "Monster Energy Reserve Orange Dreamsicle": 160,
+    "Monster Energy Reserve Peaches n' Crème": 160,
+    "Monster Energy Nitro Super Dry": 160,
+    "Monster Energy Super-Premium Import": 160,
+
+    "Monster Ultra Red White Blue Razz": 140,
+    "Monster Ultra Zero Ultra": 140,
+    "Monster Ultra Punk Punch": 140,
+    "Monster Ultra Blue Hawaiian": 140,
+    "Monster Ultra Vice Guava": 140,
+    "Monster Ultra Wild Passion": 140,
+    "Monster Ultra Strawberry Dreams": 140,
+    "Monster Ultra Sunrise": 140,
+    "Monster Ultra Violet": 140,
+    "Monster Ultra Peachy Keen": 140,
+    "Monster Ultra Fantasy Ruby Red": 140,
+    "Monster Ultra Paradise": 140,
+    "Monster Ultra Fiesta Mango": 140,
+    "Monster Ultra Watermelon": 140,
+    "Monster Ultra Rosá": 140,
+    "Monster Ultra Red": 140,
+    "Monster Ultra Blue": 140,
+    "Monster Ultra Black": 140,
+
+    "Java Monster Mean Bean": 188,
+    "Java Monster Loca Moca": 188,
+    "Java Monster Salted Caramel": 188,
+    "Java Monster Café Latte": 188,
+    "Java Monster Irish Crème": 188,
+    "Killer Brew Loca Moca": 188,
+    "Killer Brew Mean Bean": 188,
+
+    "Juice Monster Strawberry Lemonade": 160,
+    "Juice Monster Voodoo Grape": 160,
+    "Juice Monster Mango Loco": 160,
+    "Juice Monster Pacific Punch": 160,
+    "Juice Monster Viking Berry": 160,
+    "Juice Monster Bad Apple": 160,
+    "Juice Monster Rio Punch": 160,
+    "Juice Monster Pipeline Punch": 160,
+
+    "Rehab Monster Tea + Lemonade": 160,
+    "Rehab Monster Peach Tea": 160,
+    "Rehab Monster Wild Berry Tea": 160,
+    "Rehab Monster Green Tea": 160,
+
+    "Red Bull Energy Drink": 80,
     "Red Bull Sugarfree": 80,
-    "Red Bull Watermelon": 80,
-    "Red Bull Blueberry": 80,
-    "Red Bull Tropical": 80
+    "Red Bull Zero": 80,
+
+    "Red Bull Red Edition": 80,
+    "Red Bull Yellow Edition": 80,
+    "Red Bull Coconut Edition": 80,
+    "Red Bull Amber Edition": 80,
+    "Red Bull Sea Blue Edition": 80,
+    "Red Bull Sea Blue Edition Sugarfree": 80,
+    "Red Bull Pink Edition": 80,
+    "Red Bull Pink Edition Sugarfree": 80,
+    "Red Bull Peach Edition": 80,
+    "Red Bull Peach Edition Sugarfree": 80,
+    "Red Bull Iced Edition": 80,
+    "Red Bull Iced Edition Sugarfree": 80,
+
+    "Red Bull Summer Edition": 80,
+    "Red Bull Summer Edition Sugarfree": 80,
+    "Red Bull Spring Edition": 80
 };
 
 drinkSelect.addEventListener("change", function () {
@@ -214,3 +278,18 @@ if (caffeineTotal === 0) {
 } else {
     caffeineMessage.textContent = "Either youre a gym rat, working on something big or you just refuse sleep. Maybe consider stopping for today.";
 }
+
+const resetDrinksButton = document.getElementById("resetDrinks");
+
+resetDrinksButton.addEventListener("click", function() {
+
+    const confirmed = confirm("Are you sure you want to delete all saved drinks?");
+
+    if (!confirmed) {
+        return;
+    }
+
+    localStorage.removeItem("energyDrinks");
+
+    location.reload();
+});
