@@ -1,42 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background: #323335;
-    color: white;
+    margin: 0;
+    padding: 30px 15px;
+    font-family: Arial, sans-serif;
+    background: #1f2225;
+    color: #f1f3f5;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 0 8px;
+    font-size: 32px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #aeb4ba;
+    margin-bottom: 25px;
 }
 
 .stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.card {
+    background: #292d31;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 12px;
+    border: 1px solid #3a3f44;
+}
+
+.stats .card {
+    margin: 0;
+    min-height: 100px;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.card p {
+    margin: 8px 0;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #454a50;
+    border-radius: 9px;
+    background: #1f2225;
+    color: #f1f3f5;
+    font-size: 16px;
+}
+
+#caffeineAmount {
+    color: #aeb4ba;
+}
+
+#addDrink {
+    width: 100%;
+    margin-top: 8px;
+    padding: 13px;
+    border: none;
+    border-radius: 9px;
+    background: #6c8f8a;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#addDrink:hover {
+    opacity: 0.9;
+}
+
+.drink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    margin: 8px 0;
+    background: #1f2225;
+    border-radius: 9px;
+    border: 1px solid #3a3f44;
+}
+
+.drink button {
+    width: auto;
+    padding: 7px 10px;
+    border: 1px solid #5a3030;
+    border-radius: 7px;
+    background: #8a5555;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.drink button:hover {
+    opacity: 0.85;
 }
 
 @media (max-width: 600px) {
     .stats {
         grid-template-columns: 1fr;
     }
+
+    h1 {
+        font-size: 28px;
+    }
 }
 
-.container {
-    max-width: 900px;
-    margin: 40px auto;
+.today-card {
     padding: 20px;
+    border-width: 2px;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 10px;
+.today-card h2 {
+    font-size: 22px;
 }
 
-.subtitle {
-    text-align: center;
+.today-card p {
+    margin: 8px 0;
+    font-size: 17px;
 }
 
-.card {
-    background: #242629;
-    padding: 24px;
-    margin: 20px 0;
-    border-radius: 16px;
-    border: 1px solid #3a3d41;
+.stats .card h2 {
+    margin-bottom: 14px
 }
 
-.card h2 {
-    margin-top: 0;
+.stats .card p {
+    margin: 6px 0;
+}
+
+#drinkList {
+    max-height: 300px;
+    overflow-y: auto;
 }
