@@ -1,6 +1,7 @@
 const drinkSelect = document.getElementById("drink");
 const caffeineAmount = document.getElementById("caffeineAmount");
 const caffeineMessage = document.getElementById("caffeineMessage");
+
 const drinks = {
     "Monster Energy Original Green": 160,
     "Monster Energy Zero Sugar": 160,
@@ -59,7 +60,6 @@ const drinks = {
     "Red Bull Energy Drink": 80,
     "Red Bull Sugarfree": 80,
     "Red Bull Zero": 80,
-
     "Red Bull Red Edition": 80,
     "Red Bull Yellow Edition": 80,
     "Red Bull Coconut Edition": 80,
@@ -72,13 +72,12 @@ const drinks = {
     "Red Bull Peach Edition Sugarfree": 80,
     "Red Bull Iced Edition": 80,
     "Red Bull Iced Edition Sugarfree": 80,
-
     "Red Bull Summer Edition": 80,
     "Red Bull Summer Edition Sugarfree": 80,
     "Red Bull Spring Edition": 80
 };
 
-drinkSelect.addEventListener("change", function () {
+drinkSelect.addEventListener("change", function() {
 
     const selectedDrink = drinkSelect.value;
 
@@ -127,7 +126,7 @@ function saveDrinks() {
     );
 }
 
-addDrinkButton.addEventListener("click", function () {
+addDrinkButton.addEventListener("click", function() {
 
     const selectedDrink = drinkSelect.value;
 
@@ -155,6 +154,7 @@ addDrinkButton.addEventListener("click", function () {
     deleteButton.textContent = "Delete";
 
     deleteButton.addEventListener("click", function() {
+
         const index = savedDrinks.findIndex(function(drink) {
             return drink.name === selectedDrink &&
                    drink.caffeine === caffeine;
@@ -203,14 +203,19 @@ const startOfMonth = new Date(
     1
 );
 
+const yesterday = new Date();
+
+yesterday.setDate(yesterday.getDate() - 1);
+
+const historyGroups = {};
+
 savedDrinks.slice().reverse().forEach(function(drink) {
 
     totalDrinkCount++;
     totalCaffeineAllTime += drink.caffeine;
 
-    const drinkDate = new Date(drink.date).toDateString();
-
     const drinkDateObject = new Date(drink.date);
+    const drinkDate = drinkDateObject.toDateString();
 
     if (drinkDateObject >= startOfWeek) {
         weekDrinkCount++;
@@ -223,15 +228,39 @@ savedDrinks.slice().reverse().forEach(function(drink) {
     }
 
     if (drinkDate === today) {
-
         numberOfDrinks++;
         caffeineTotal += drink.caffeine;
+    }
+
+    if (!historyGroups[drinkDate]) {
+        historyGroups[drinkDate] = [];
+    }
+
+    historyGroups[drinkDate].push(drink);
+});
+
+Object.keys(historyGroups).forEach(function(date) {
+
+    const dateHeader = document.createElement("h3");
+
+    if (date === today) {
+        dateHeader.textContent = "Today";
+    } else if (date === yesterday.toDateString()) {
+        dateHeader.textContent = "Yesterday";
+    } else {
+        dateHeader.textContent = new Date(date).toLocaleDateString();
+    }
+
+    drinkList.appendChild(dateHeader);
+
+    historyGroups[date].forEach(function(drink) {
 
         const drinkItem = document.createElement("div");
+
         drinkItem.className = "drink";
 
         drinkItem.textContent =
-            `${drink.name} - ${drink.caffeine} mg caffeine - ${new Date(drink.date).toLocaleString()}`;
+            `${drink.name} - ${drink.caffeine} mg caffeine - ${new Date(drink.date).toLocaleTimeString()}`;
 
         const deleteButton = document.createElement("button");
 
@@ -242,7 +271,6 @@ savedDrinks.slice().reverse().forEach(function(drink) {
             const index = savedDrinks.indexOf(drink);
 
             if (index !== -1) {
-
                 savedDrinks.splice(index, 1);
 
                 saveDrinks();
@@ -254,7 +282,7 @@ savedDrinks.slice().reverse().forEach(function(drink) {
         drinkItem.appendChild(deleteButton);
 
         drinkList.appendChild(drinkItem);
-    }
+    });
 });
 
 drinkCount.textContent = numberOfDrinks;
