@@ -321,3 +321,18 @@ resetDrinksButton.addEventListener("click", function() {
 
     location.reload();
 });
+
+const historySearch = document.getElementById("historySearch");
+
+historySearch.addEventListener("input", function() {
+    const searchText = historySearch.value.toLowerCase();
+    const historyItems = document.querySelectorAll("#drinkList .drink");
+
+    historyItems.forEach(function(item) {
+        if (item.textContent.toLowerCase().includes(searchText)) {
+            item.style.display = "flex";
+        } else {
+            item.style.display = "none";
+        }
+    });
+});
