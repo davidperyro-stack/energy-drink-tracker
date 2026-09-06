@@ -1,6 +1,132 @@
 const drinkSelect = document.getElementById("drink");
 const caffeineAmount = document.getElementById("caffeineAmount");
 const caffeineMessage = document.getElementById("caffeineMessage");
+const openDrinkPickerBtn = document.getElementById("openDrinkPicker");
+const drinkModalOverlay = document.getElementById("drinkModalOverlay");
+const closeDrinkModalBtn = document.getElementById("closeDrinkModal");
+const drinkModalGrid = document.getElementById("drinkModalGrid");
+const drinkModalSearch = document.getElementById("drinkModalSearch");
+const selectedDrinkLabel = document.getElementById("selectedDrinkLabel");
+const selectedDrinkImage = document.getElementById("selectedDrinkImage");
+
+function slugify(value) {
+    return value
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+}
+
+function getDrinkImagePath(value) {
+    return `images/drinks/${slugify(value)}.png`;
+}
+
+function buildDrinkModal() {
+    drinkModalGrid.innerHTML = "";
+
+    const optgroups = drinkSelect.querySelectorAll("optgroup");
+
+    optgroups.forEach(function(group) {
+
+        const groupLabel = document.createElement("div");
+        groupLabel.className = "drink-option-group";
+        groupLabel.textContent = group.label;
+        drinkModalGrid.appendChild(groupLabel);
+
+        const options = group.querySelectorAll("option");
+
+        options.forEach(function(option) {
+
+            const card = document.createElement("div");
+            card.className = "drink-option-card";
+            card.dataset.value = option.value;
+            card.dataset.label = option.textContent.toLowerCase();
+
+            const img = document.createElement("img");
+            img.src = getDrinkImagePath(option.value);
+            img.alt = option.textContent;
+            img.onerror = function() {
+                img.onerror = null;
+                img.src = "images/drinks/placeholder.png";
+            };
+
+            const label = document.createElement("span");
+            label.textContent = option.textContent;
+
+            card.appendChild(img);
+            card.appendChild(label);
+
+            card.addEventListener("click", function() {
+                selectDrink(option.value, option.textContent);
+                closeDrinkModal();
+            });
+
+            drinkModalGrid.appendChild(card);
+        });
+    });
+}
+
+function selectDrink(value, label) {
+    drinkSelect.value = value;
+    drinkSelect.dispatchEvent(new Event("change"));
+
+    selectedDrinkLabel.textContent = label;
+
+    selectedDrinkImage.onerror = function() {
+        selectedDrinkImage.onerror = null;
+        selectedDrinkImage.src = "images/drinks/placeholder.png";
+    };
+    selectedDrinkImage.src = getDrinkImagePath(value);
+    selectedDrinkImage.classList.remove("hidden");
+}
+
+function openDrinkModal() {
+    drinkModalOverlay.classList.remove("hidden");
+    drinkModalSearch.value = "";
+    filterDrinkModal("");
+    drinkModalSearch.focus();
+}
+
+function closeDrinkModal() {
+    drinkModalOverlay.classList.add("hidden");
+}
+
+function filterDrinkModal(searchText) {
+    const cards = drinkModalGrid.querySelectorAll(".drink-option-card");
+    const groups = drinkModalGrid.querySelectorAll(".drink-option-group");
+
+    cards.forEach(function(card) {
+        const matches = card.dataset.label.includes(searchText);
+        card.classList.toggle("no-match", !matches);
+    });
+
+    groups.forEach(function(group) {
+        let sibling = group.nextElementSibling;
+        let hasVisibleCard = false;
+
+        while (sibling && sibling.classList.contains("drink-option-card")) {
+            if (!sibling.classList.contains("no-match")) {
+                hasVisibleCard = true;
+            }
+            sibling = sibling.nextElementSibling;
+        }
+
+        group.style.display = hasVisibleCard ? "" : "none";
+    });
+}
+
+buildDrinkModal();
+
+openDrinkPickerBtn.addEventListener("click", openDrinkModal);
+closeDrinkModalBtn.addEventListener("click", closeDrinkModal);
+
+drinkModalOverlay.addEventListener("click", function(event) {
+    if (event.target === drinkModalOverlay) {
+        closeDrinkModal();
+    }
+});
+drinkModalSearch.addEventListener("input", function() {
+    filterDrinkModal(drinkModalSearch.value.toLowerCase());
+});
 
 const drinks = {
     "Monster Energy Original Green": 160,
