@@ -46,7 +46,12 @@
 
             <h2>Add a Drink</h2>
 
-            <select id="drink">
+            <button type="button" id="openDrinkPicker" class="drink-picker-trigger">
+                <img id="selectedDrinkImage" src="" alt="" class="selected-drink-img hidden">
+                <span id="selectedDrinkLabel">-- Choose a drink --</span>
+            </button>
+
+            <select id="drink" class="hidden-select" aria-hidden="true" tabindex="-1">
                 <option value="">-- Choose a drink --</option>
 
                 <optgroup label="Monster Energy (Original)">
@@ -159,6 +164,19 @@
         </section>
 
     </main>
+
+    <div id="drinkModalOverlay" class="modal-overlay hidden">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Choose a Drink</h2>
+                <button type="button" id="closeDrinkModal" class="modal-close-btn">&times;</button>
+            </div>
+
+            <input type="text" id="drinkModalSearch" placeholder="Search drinks...">
+
+            <div id="drinkModalGrid" class="drink-modal-grid"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 
