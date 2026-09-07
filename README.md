@@ -6,10 +6,10 @@ This website made special for those who wants to see how much caffeine/energy dr
 
 ## Features
 
--a list of ALL flavours of monster and redbull
--widgets that is for seeing how much you`ve consumed this day,this month and all time (since you started tracking)
--a reset button (USE IT IF NEEDED)
--a delete button if you missclicked a drink
+- a list of ALL flavours of monster and redbull
+- widgets that is for seeing how much you`ve consumed this day,this month and all time (since you started tracking)
+- a reset button (USE IT IF NEEDED)
+- a delete button if you missclicked a drink
 
 ## Tech Stack
 
