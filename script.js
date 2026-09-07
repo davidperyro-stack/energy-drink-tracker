@@ -9,27 +9,13 @@ const drinkModalSearch = document.getElementById("drinkModalSearch");
 const selectedDrinkLabel = document.getElementById("selectedDrinkLabel");
 const selectedDrinkImage = document.getElementById("selectedDrinkImage");
 
-function slugify(value) {
-    return value
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "");
-}
-
 function getDrinkImagePath(value) {
     const original = value
         .toLowerCase()
         .replace(/[^a-z0-9À-ÿ]+/g, "-")
         .replace(/(^-|-$)/g, "");
 
-    const normalized = slugify(value);
-
-    return {
-        original: `images/drinks/${original}.png`,
-        normalized: `images/drinks/${normalized}.png`
-    };
+    return `images/drinks/${original}.png`;
 }
 
 function buildDrinkModal() {
@@ -412,7 +398,7 @@ Object.keys(historyGroups).forEach(function(date) {
                 savedDrinks.splice(index, 1);
 
                 saveDrinks();
-
+                
                 location.reload();
             }
         });
