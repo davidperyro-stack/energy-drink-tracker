@@ -19,7 +19,7 @@ This website made special for those who wants to see how much caffeine/energy dr
 
 ## Live Website
 
-coming soon!
+https://davidperyro-stack.github.io/energy-drink-tracker/
 
 ## AI Usage
 
